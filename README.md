@@ -14,7 +14,6 @@ I have created this sample readme file to teach you how to come up with your own
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
@@ -51,20 +50,6 @@ result = project_name.do_something()
 print(result)
 ```
 
----
-
-## **Contributing**
-
-Guidelines for contributing to the project. Include information on how to report bugs, suggest features, or submit pull requests. Mention any coding standards or workflows contributors should follow.
-
-Example:
-- Fork the repository.
-- Create a new branch for your feature (`git checkout -b feature/AmazingFeature`).
-- Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-- Push to the branch (`git push origin feature/AmazingFeature`).
-- Open a pull request.
-
----
 
 ## **License**
 
