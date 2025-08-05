@@ -1,84 +1,29 @@
-# **Node Project Sampler**
+# Estimation of anomalous diffusion exponent and generalised diffusion coefficient for space-time heterogeneous anomalous diffusion 
 
-This is a repository containing a sample readme file.
+> The repository is hosting the code for the work "Deep Learning for Heterogeneous Anomalous Dynamics in Cellular and Molecular Biology" by Nickolay Korabel and Thomas Andrew Waigh.
 
 ---
 
 ## **Description**
 
-I have created this sample readme file to teach you how to come up with your own readme files using markdown.
+A neural network-based method for estimating the time-dependent anomalous exponent α(t) and the generalised diffusion coefficient D(t) from single-particle trajectories.
 
----
+• The method is based on a tandem of LSTM neural networks: The H-LSTM estimates the time-dependent anomalous exponent α(t) and the D-LSTM estimates the generalised diffusion coefficient D(t).
 
-## **Table of Contents**
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
----
-
-## **Installation**
-
-Step-by-step instructions on how to install and set up the project locally. Include any dependencies, commands, or environment variables required.
-
-Example:
-```bash
-# Clone the repository
-git clone https://github.com/username/project-name.git
-
-# Navigate to the project directory
-cd project-name
-
-# Install dependencies
-npm install
-```
+• Space-time heterogeneities are resolved using a rolling window of 20 data points that slides along the trajectory by one time increment. Within each window, anomalous diffusion is assumed to follow standard fractional Brownian motion with a constant Hurst exponent (related to the anomalous exponent as H = α/2) and a constant generalised diffusion coefficient. The first neural network (H-LSTM), which is trained on FBM trajectories of the same length as the rolling window, estimates the Hurst exponent. This resolves the time-dependent anomalous exponent α(t). The second neural network (D-LSTM) uses the same-size rolling window and the predicted value of the Hurst exponent in each window to estimate the time-dependent generalised diffusion coefficient D(t) from single-particle trajectories.
+ 
+• On average, the NNs achieved a 60% increase in the accuracy of estimating the anomalous exponent α and a 150% increase in the estimation of the generalised diffusion coefficient over time-averaged MSD analysis for short, noisy trajectories with heterogeneous dynamics.
+ 
+• The NNs were validated using synthetic and experimental datasets, including intracellular and cellular motility and microrheology in soft matter systems.
 
 ---
 
 ## **Usage**
 
-Explain how to use the project. Include examples, screenshots, or code snippets to demonstrate its functionality. If applicable, provide instructions for different use cases or environments.
+1) Train the H-LSTM model by running the Train_H_LSTM.py script. 
 
-Example:
-```python
-# Example code snippet
-import project_name
+2) Run the Predict_H.py script to estimate the time-dependent Hurst exponent for one or more trajectories.
 
-result = project_name.do_something()
-print(result)
+3) Run the Train_Predict_D.py script to estimate the generalised diffusion coefficient using time-dependent Hurst exponents predicted by H-LSTM.
+
 ```
-
-
-## **License**
-
-Specify the license under which the project is distributed. Include a link to the full license text if applicable.
-
-Example:
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## **Acknowledgments**
-
-Give credit to any resources, libraries, or individuals that helped in the development of the project. This can include links to tutorials, tools, or inspiration.
-
-Example:
-- [Awesome Library](https://github.com/awesome/library) for making this project possible.
-- Thanks to [Contributor Name](https://github.com/contributor) for their valuable input.
-
----
-
-## **Contact Information**
-
-Provide your contact information or links to your social profiles for users to reach out with questions or feedback.
-
-Example:
-- Email: your.email@example.com
-- Twitter: [@yourhandle](https://twitter.com/yourhandle)
-- GitHub: [yourusername](https://github.com/yourusername)
-
----
-
-This structure is flexible and can be adapted to suit the specific needs of your project. The goal is to make the README informative, easy to navigate, and helpful for anyone interacting with your project.
