@@ -24,6 +24,6 @@ A neural network-based method for estimating the time-dependent anomalous expone
 
 2) Run the Predict_H.py script to estimate the time-dependent Hurst exponent for one or more trajectories.
 
-3) Run the Train_Predict_D.py script to estimate the generalised diffusion coefficient using time-dependent Hurst exponents predicted by H-LSTM.
+3) Run the Predict_D.py script to estimate the generalised diffusion coefficient using time-dependent Hurst exponents predicted by H-LSTM.
 
 ```
