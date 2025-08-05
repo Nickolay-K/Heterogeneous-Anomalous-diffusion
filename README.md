@@ -10,7 +10,7 @@ A neural network-based method for estimating the time-dependent anomalous expone
 
 • The method is based on a tandem of LSTM neural networks: The H-LSTM estimates the time-dependent anomalous exponent α(t) and the D-LSTM estimates the generalised diffusion coefficient D(t).
 
-• Space-time heterogeneities are resolved using a rolling window of 20 data points that slides along the trajectory by one time increment. Within each window, anomalous diffusion is assumed to follow standard fractional Brownian motion with a constant Hurst exponent (related to the anomalous exponent as H = α/2) and a constant generalised diffusion coefficient. The first neural network (H-LSTM), which is trained on FBM trajectories of the same length as the rolling window, estimates the Hurst exponent. This resolves the time-dependent anomalous exponent α(t). The second neural network (D-LSTM) uses the same-size rolling window and the predicted value of the Hurst exponent in each window to estimate the time-dependent generalised diffusion coefficient D(t) from single-particle trajectories.
+• Space-time heterogeneities are resolved using a rolling window of 20 data points that slides along the trajectory by one time increment, dt. Within each window, anomalous diffusion is assumed to follow standard fractional Brownian motion with a constant Hurst exponent (related to the anomalous exponent as H = α/2) and a constant generalised diffusion coefficient. The first neural network (H-LSTM), which is trained on FBM trajectories of the same length as the rolling window, estimates the Hurst exponent. This resolves the time-dependent anomalous exponent α(t). The second neural network (D-LSTM) uses the same-size rolling window and the predicted value of the Hurst exponent in each window to estimate the time-dependent generalised diffusion coefficient D(t) from single-particle trajectories.
  
 • On average, the NNs achieved a 60% increase in the accuracy of estimating the anomalous exponent α and a 150% increase in the estimation of the generalised diffusion coefficient over time-averaged MSD analysis for short, noisy trajectories with heterogeneous dynamics.
  
@@ -20,7 +20,7 @@ A neural network-based method for estimating the time-dependent anomalous expone
 
 ## **Usage**
 
-1) Train the H-LSTM model by running the Train_H_LSTM.py script. 
+1) Train the H-LSTM model by running the Train_H_LSTM.py script. We provide two pretrained models, LSTM_2d_H_w20.h5 and LSTM_3d_H_w20.h5, for 20-point rolling window and dt=0.02.
 
 2) Run the Predict_H.py script to estimate the time-dependent Hurst exponent for one or more trajectories.
 
